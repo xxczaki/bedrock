@@ -12,7 +12,7 @@ case $1 in
     ;;
   firefox)
     BROWSER_NAME=firefox
-    BROWSER_VERSION="45.0"
+    BROWSER_VERSION="53.0"
     PLATFORM="Windows 10"
     ;;
   ie)
@@ -71,10 +71,10 @@ if [ "${DRIVER}" = "Remote" ]; then
   # Waits until all nodes are ready and then runs tests against a local
   # bedrock instance.
 
-  SELENIUM_VERSION=${SELENIUM_VERSION:-2.48.2}
+  SELENIUM_VERSION=${DOCKER_SELENIUM_VERSION:-"3.4.0-chromium"}
 
   docker pull selenium/hub:${SELENIUM_VERSION}
-  docker pull selenium/node-firefox:${SELENIUM_VERSION}
+  docker pull selenium/node-firefox-debug:${SELENIUM_VERSION}
 
   # start selenium grid hub
   docker run -d --rm \
@@ -85,10 +85,11 @@ if [ "${DRIVER}" = "Remote" ]; then
 
   # start selenium grid nodes
   for NODE_NUMBER in `seq ${NUMBER_OF_NODES:-5}`; do
-    docker run -d --rm \
+    docker run -d --rm --shm-size 2g \
       --name bedrock-selenium-node-${NODE_NUMBER}-${GIT_COMMIT_SHORT} \
       ${DOCKER_LINKS[@]} \
-      selenium/node-firefox:${SELENIUM_VERSION}
+      -p $((5900 + $NODE_NUMBER)):5900 \
+      selenium/node-firefox-debug:${SELENIUM_VERSION}
     while ! ${SELENIUM_READY}; do
       IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' bedrock-selenium-node-${NODE_NUMBER}-${GIT_COMMIT_SHORT}`
       CMD="docker run --rm --link bedrock-selenium-hub-${GIT_COMMIT_SHORT}:hub tutum/curl curl http://hub:4444/grid/api/proxy/?id=http://${IP}:5555 | grep 'proxy found'"

@@ -11,9 +11,9 @@ from pages.firefox.desktop.all import FirefoxDesktopBasePage
 @pytest.mark.nondestructive
 @pytest.mark.parametrize(('slug', 'locale'), [
     ('', 'de'),
-    ('customize', None),
-    ('fast', 'de'),
-    ('trust', None)])
+    ('customize/', None),
+    ('fast/', 'de'),
+    ('trust/', None)])
 def test_download_button_is_displayed(slug, locale, base_url, selenium):
     locale = locale or 'en-US'
     page = FirefoxDesktopBasePage(selenium, base_url, locale, slug=slug).open()
