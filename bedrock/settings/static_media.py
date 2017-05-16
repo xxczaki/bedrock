@@ -1540,6 +1540,13 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/firefox-hub-home-bundle.js',
     },
+    'experiment_firefox_landing': {
+        'source_filenames': (
+            'js/base/mozilla-traffic-cop.js',
+            'js/firefox/experiment-firefox-landing.js',
+        ),
+        'output_filename': 'js/experiment_firefox_landing-bundle.js',
+    },
     'home': {
         'source_filenames': (
             'js/libs/jquery.cycle2.min.js',

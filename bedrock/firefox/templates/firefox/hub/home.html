@@ -6,6 +6,10 @@
 
 {# L10n: strings for this page are not considered final and aren't ready for localization. #}
 
+{% block experiments %}
+  {% javascript 'experiment_firefox_landing' %}
+{% endblock %}
+
 {% block page_title %}
   {{ _('Fast, private browser for desktop, iOS and Android') }}
 {% endblock %}
