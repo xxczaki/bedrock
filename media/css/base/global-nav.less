@@ -100,7 +100,7 @@
             height: 25px;
         }
 
-        @media only screen and (max-width: @breakNavDesktop) {
+        @media only screen and (max-width: @breakDesktop) {
             margin-left: 5px;
 
             a {
@@ -114,17 +114,17 @@
     // Horizontal link menu container
     .nav-horizontal-menu {
         .clearfix;
-        margin-left: 17px;
+        margin-left: 5px;
+        overflow: hidden;
         padding: 25px 0 10px;
         position: relative;
-        overflow: hidden;
 
-        @media only screen and (max-width: @breakNavTablet) {
+        @media only screen and (max-width: @breakTablet) {
             padding-top: 10px;
         }
 
-        @media only screen and (max-width: @breakNavDesktop) {
-            margin-left: 5px;
+        @media only screen and (max-width: @breakDesktop) {
+            margin-left: 17px;
         }
     }
 
@@ -134,13 +134,19 @@
         display: block;
         float: left;
         list-style-type: none;
-        margin: 0 0 0 21px;
-        padding: 13px 0;
+        margin: 0 0 0 40px;
+        padding: 13px 0 0;
+        width: calc(~'100% - 480px');
 
         &> li {
             display: inline-block;
-            padding: 0 21px;
+            line-height: 1.2;
+            padding: 0 20px 10px 0;
             margin: 0;
+
+            &:last-child {
+                padding-right: 0;
+            }
 
             a:hover,
             a:active,
@@ -153,15 +159,20 @@
             }
         }
 
-        @media only screen and (max-width: @breakNavDesktop) {
-            margin-left: 10px;
+        @media only screen and (max-width: @breakDesktop) {
+            margin-left: 20px;
+            width: calc(~'100% - 370px');
 
             &> li {
-                padding: 0 6px;
+                padding-right: 10px;
+
+                &:last-child {
+                    padding-right: 0;
+                }
             }
         }
 
-        @media only screen and (max-width: @breakNavTablet) {
+        @media only screen and (max-width: @breakTablet) {
             display: none;
         }
     }
@@ -266,7 +277,7 @@
             }
         }
 
-        @media only screen and (max-width: @breakNavDesktop) {
+        @media only screen and (max-width: @breakDesktop) {
 
             .rect {
                 transition: none;
@@ -485,6 +496,7 @@ html.moz-nav-open .moz-global-nav-page-mask {
 #global-nav-download-firefox {
     float: right;
     margin: -2px 85px 0 0;
+    width: 200px;
 
     .download-list {
         margin: 0;
@@ -492,6 +504,10 @@ html.moz-nav-open .moz-global-nav-page-mask {
         &> li {
             margin: 0;
         }
+    }
+
+    .download-link {
+        float: right;
     }
 
     .download-link:link,
@@ -532,7 +548,7 @@ html.moz-nav-open .moz-global-nav-page-mask {
         }
     }
 
-    @media only screen and (max-width: @breakNavDesktop) {
+    @media only screen and (max-width: @breakDesktop) {
         margin-right: 60px;
 
         .download-link {
@@ -543,7 +559,7 @@ html.moz-nav-open .moz-global-nav-page-mask {
         }
     }
 
-    @media only screen and (max-width: @breakNavTablet) {
+    @media only screen and (max-width: @breakTablet) {
         margin-right: 20px;
     }
 
@@ -672,7 +688,7 @@ html.moz-nav-open {
         }
     }
 
-    @media only screen and (max-width: @breakNavDesktop) {
+    @media only screen and (max-width: @breakDesktop) {
         html.moz-nav-open {
             height: auto;
 
@@ -752,7 +768,7 @@ html.moz-nav-open {
     }
 
     // only show promos on taller desktop viewports
-    @media only screen and (max-width: @breakNavTablet) {
+    @media only screen and (max-width: @breakTablet) {
         .nav-promo {
             display: none;
         }
