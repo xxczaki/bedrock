@@ -10,7 +10,6 @@ if (typeof Mozilla == 'undefined') {
     // init dataLayer object
     var dataLayer = window.dataLayer = window.dataLayer || [];
     var Analytics = {};
-    var trafficCopOriginalReferrer;
 
     /** Returns page ID used in Event Category for GA events tracked on page.
     * @param {String} path - URL path name fallback if page ID does not exist.
@@ -24,15 +23,17 @@ if (typeof Mozilla == 'undefined') {
     };
 
     Analytics.getTrafficCopReferrer = function() {
-        // if referrer hasn't been set yet, try to grab it and then remove the cookie
+        var referrer;
+
+        // if referrer cookie exists, store the value and remove the cookie
         if (Mozilla.Cookies && Mozilla.Cookies.hasItem('mozilla-traffic-cop-original-referrer')) {
-            trafficCopOriginalReferrer = Mozilla.Cookies.getItem('mozilla-traffic-cop-original-referrer');
+            referrer = Mozilla.Cookies.getItem('mozilla-traffic-cop-original-referrer');
 
             // referrer shouldn't persist
             Mozilla.Cookies.removeItem('mozilla-traffic-cop-original-referrer');
         }
 
-        return trafficCopOriginalReferrer;
+        return referrer;
     };
 
     Analytics.buildDataObject = function() {
@@ -41,12 +42,17 @@ if (typeof Mozilla == 'undefined') {
             'pageId': Analytics.getPageId()
         };
 
+        var referrer = Analytics.getTrafficCopReferrer();
+
         // if original referrer exists, pass it to GTM
-        if (Analytics.getTrafficCopReferrer()) {
+        if (referrer) {
             // Traffic Cop sets the referrer to 'direct' if document.referer is empty
             // prior to the redirect, so this value will either be a URL or the string 'direct'.
-            dataObj.customReferrer = Analytics.getTrafficCopReferrer();
+            dataObj.customReferrer = referrer;
         }
+
+        console.log('the dataObj is:');
+        console.log(dataObj);
 
         return dataObj;
     };

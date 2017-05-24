@@ -1515,6 +1515,13 @@ PIPELINE_JS = {
         ),
         'output_filename': 'js/experiment_firefox_whatsnew_50_zhtw-bundle.js',
     },
+    'experiment_firefox_landing': {
+        'source_filenames': (
+            'js/base/mozilla-traffic-cop.js',
+            'js/firefox/experiment-firefox-landing.js',
+        ),
+        'output_filename': 'js/experiment_firefox_landing-bundle.js',
+    },
     'firefox_firstrun_yahoo_retention': {
         'source_filenames': (
             'js/base/uitour-lib.js',
