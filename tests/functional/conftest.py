@@ -36,10 +36,10 @@ def driver_log():
 #     return firefox_profile
 
 
-@pytest.fixture(scope='session')
-def session_capabilities(session_capabilities):
-    session_capabilities.setdefault('tags', []).append('bedrock')
-    return session_capabilities
+# @pytest.fixture(scope='session')
+# def session_capabilities(session_capabilities):
+#     session_capabilities.setdefault('tags', []).append('bedrock')
+#     return session_capabilities
 
 
 @pytest.fixture

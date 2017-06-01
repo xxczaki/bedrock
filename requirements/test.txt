@@ -29,9 +29,9 @@ pytest-selenium==1.10.0 \
 pytest-variables==1.5.1 \
     --hash=sha256:1365c5f2c3be70d1b165272c1ab76ba0692c901db9b98c0b09062cc70b55a36d \
     --hash=sha256:8f2b7c16c54bfe93561c7a36a5e9d8780bdcd36e6e37d9f7b3b51b656449e2ea
-selenium==3.3.0 \
-    --hash=sha256:acc1b6867ba1e6fc75c709dcfccc1447b29e961fcaea3bba675e9ad719e8b905 \
-    --hash=sha256:43ec925d704928f7a34cb8615354a55a6666b952db2041112473f41e815fb6ab
+selenium==3.4.3 \
+    --hash=sha256:9e4885e7c72e20126b22ce5fc5981bbedd80bff99474c0757f62d5e68e1f17ac \
+    --hash=sha256:0c09f437f4f6754c0543d79bae4e58b8fd40b3d7cd10889eca66dd1c7af24c63
 pytest-xdist==1.15.0 \
     --hash=sha256:6238395f8bd050f9288a3b10f34330edece80f4424cf2b4204d6e7d622f0f00b
 pytest-rerunfailures==2.0.1 \
