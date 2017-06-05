@@ -19,11 +19,3 @@
 {% block notes_heading_primary %}
   <h1>{{ _('See what landed recently in <span>Firefox Nightly</span>!') }}</h1>
 {% endblock %}
-
-{% block site_footer %}
-  {% if LANG.startswith('en-') %}
-    {% include 'includes/site-footer-new.html' %}
-  {% else %}
-    {% include 'includes/site-footer.html' %}
-  {% endif %}
-{% endblock %}
