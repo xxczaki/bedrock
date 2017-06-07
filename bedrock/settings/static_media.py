@@ -218,6 +218,13 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'css/contact-spaces-oldie-bundle.css',
     },
+    'developer-hub': {
+        'source_filenames': (
+            'css/base/mozilla-modal.less',
+            'css/mozorg/developer/index.scss',
+        ),
+        'output_filename': 'css/mozorg/developer-hub-bundle.css',
+    },
     'dnt': {
         'source_filenames': (
             'css/firefox/family-nav.less',
@@ -1193,6 +1200,13 @@ PIPELINE_JS = {
             'js/mozorg/developer/css-grid-demo.js',
         ),
         'output_filename': 'js/css-grid-demo-bundle.js',
+    },
+    'developer-hub': {
+        'source_filenames': (
+            'js/base/mozilla-modal.js',
+            'js/mozorg/developer/developer-hub.js',
+        ),
+        'output_filename': 'js/developer-hub-bundle.js',
     },
     'dnt': {
         'source_filenames': (
