@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 
 class NewsFeed(Region):
 
-    _root_locator = (By.CLASS_NAME, 'news-feed')
+    _root_locator = (By.CSS_SELECTOR, '.news .news-feed')
     _article_locator = (By.CLASS_NAME, 'entry')
 
     @property
