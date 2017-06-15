@@ -85,3 +85,16 @@ APPLE_APPSTORE_COUNTRY_MAP = {
     'vi': 'vt',     # Vietnam
     'en-ZA': 'za',  # South Africa
 }
+
+# Link to Firefox Focus for iOS on the Apple App Store via app.adjust.
+# ?fallback parameter sends users who are on the wrong platform to the iTunes website.
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1350170
+APPLE_APPSTORE_FIREFOX_FOCUS_LINK = ('https://app.adjust.com/b8s7qo?campaign=&adgroup=&creative=iOS' +
+                                     '&fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fid1055677337%3Fmt%3D8')
+
+# Link to Firefox Focus for Android on the Google Play Store via app.adjust.
+# ?fallback parameter sends users who are on the wrong platform to the Play Store website.
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1350170
+# TODO - this is still the wrong URL
+GOOGLE_PLAY_FIREFOX_FOCUS_LINK = ('https://app.adjust.com/b8s7qo?campaign=&adgroup=&creative=iOS' +
+                                     '&fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fid1055677337%3Fmt%3D8')
